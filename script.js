@@ -91,10 +91,10 @@ var specialCharacters = [
   // Function to prompt user for password options
   function getPasswordOptions() {
     let passwordLength = prompt("At least 10 characters but no more than 64");
-    let includeCapitalLetter = confirm("Include capital letters in your password?");
-    let includeSpecialChars = confirm("Include special characters in your password?($@%&*, etc)");
-    let includenumericCharacters = confirm("Include numeric  charactersin your password?");
-    let includelowerCasedCharacters = confirm("Include lower cased characters in your password?");
+    let includeCapitalLetter = prompt("Include capital letters in your password?");
+    let includeSpecialChars = prompt("Include special characters in your password?($@%&*, etc)");
+    let includenumericCharacters = prompt("Include numeric  charactersin your password?");
+    let includelowerCasedCharacters = prompt("Include lower cased characters in your password?");
     return {
         length: passwordLength,
         hasUpperCase: includeCapitalLetter,
@@ -106,7 +106,8 @@ var specialCharacters = [
   
   // Function for getting a random element from an array
   function getRandom(arr) {
-  
+    arr[Math.floor(Math.random()*arr.length)];
+    return arr;
   }
   
   // Function to generate password with user input
