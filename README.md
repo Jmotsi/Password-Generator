@@ -22,7 +22,9 @@ N/A
 
 Screenshot of the website.
 
+![Screenshot](https://github.com/Jmotsi/Password-Generator/blob/main/passwordgenerator.JPG)
 
+https://jmotsi.github.io/Password-Generator/
 
 **Requirements**
 - Web browser
