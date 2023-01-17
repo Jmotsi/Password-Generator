@@ -91,10 +91,10 @@ var specialCharacters = [
   // Function to prompt user for password options
   function getPasswordOptions() {
     let passwordLength = prompt("At least 10 characters but no more than 64");
-    let includeCapitalLetter = prompt("Include capital letters in your password?");
-    let includeSpecialChars = prompt("Include special characters in your password?($@%&*, etc)");
-    let includenumericCharacters = prompt("Include numeric  charactersin your password?");
-    let includelowerCasedCharacters = prompt("Include lower cased characters in your password?");
+    let includeCapitalLetter = confirm("Include capital letters in your password?");
+    let includeSpecialChars = confirm("Include special characters in your password?($@%&*, etc)");
+    let includenumericCharacters = confirm("Include numeric  charactersin your password?");
+    let includelowerCasedCharacters = confirm("Include lower cased characters in your password?");
     return {
         length: passwordLength,
         hasUpperCase: includeCapitalLetter,
@@ -106,14 +106,28 @@ var specialCharacters = [
   
   // Function for getting a random element from an array
   function getRandom(arr) {
-    arr[Math.floor(Math.random()*arr.length)];
-    return arr;
+    let randomIndex = Math.floor(Math.random() * arr.length);
+    let randomElement = arr[randomIndex];
+    return randomElement;
   }
   
   // Function to generate password with user input
   function generatePassword() {
-  
-  }
+    let userOptions = getPasswordOptions();
+        let allCharTypes = [lowerCasedCharacters, upperCasedCharacters, numericCharacters, specialCharacters];
+        let password = '';
+        
+        for (i = 0; i < userOptions.length; i++) {
+            let charType;
+            if(userOptions.hasUpperCase) {charType = getRandom(upperCasedCharacters) }
+            if(userOptions.hasLowerCase) { charType = getRandom(lowerCasedCharacters) }
+            if(userOptions.hasNumeric) { charType = getRandom(numericCharacters) }
+            if(userOptions.hasSpecialChars) { charType = getRandom(specialCharacters) }
+            password += charType;
+        }
+        
+        return password;
+    };
   
   // Get references to the #generate element
   var generateBtn = document.querySelector('#generate');
