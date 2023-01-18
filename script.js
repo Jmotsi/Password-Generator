@@ -115,8 +115,17 @@ var specialCharacters = [
   function generatePassword() {
     let userOptions = getPasswordOptions();
         let password = '';
+  /**
+   * userOptions is an object, if you console.log(userOptions)
+   * you can see that it has the length parameter and it is set
+   * to the initial word as user inputs. There are a number of ways
+   * to fix this. However below will make the program run with the expected
+   * behaviour.
+   * 
+   * Enjoy, if you want to hit me up for any follow up just let me know.
+   */
         
-        for (i = 0; i < userOptions.length; i++) {
+        for (i = 0; i < userOptions.length.length; i++) {
             let charType;
             if(userOptions.hasUpperCase) {charType = getRandom(upperCasedCharacters) }
             if(userOptions.hasLowerCase) { charType = getRandom(lowerCasedCharacters) }
